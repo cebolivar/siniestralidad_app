@@ -2,7 +2,7 @@ import pandas as pd
 import pickle
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.preprocessing import LabelEncoder
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import plt
 import os
 
 # Cargar los datos
