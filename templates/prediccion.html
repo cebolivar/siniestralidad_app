@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Fallecidos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Predicción de Fallecidos</h2>
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">GiZScore:</label>
+                                <input type="text" name="score" class="form-control" required value="{{ score|default('') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">GiPValue:</label>
+                                <input type="text" name="pvalue" class="form-control" required value="{{ pvalue|default('') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Latitud:</label>
+                                <input type="text" name="latitud" class="form-control" required value="{{ latitud|default('') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Longitud:</label>
+                                <input type="text" name="longitud" class="form-control" required value="{{ longitud|default('') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tramo:</label>
+                                <input type="text" name="tramo" class="form-control" required value="{{ tramo|default('') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Municipio:</label>
+                                <input type="text" name="municipio" class="form-control" required value="{{ municipio|default('') }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Predecir fallecidos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

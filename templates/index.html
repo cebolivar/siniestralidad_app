@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Siniestralidad Vial</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Siniestralidad Vial</a>
+      <div>
+        <a href="{{ url_for('prediccion') }}" class="btn btn-light me-2">Predicción</a>
+        <a href="{{ url_for('analisis') }}" class="btn btn-light me-2">Análisis</a>
+        <a href="{{ url_for('seleccionados') }}" class="btn btn-light">Seleccionados</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="mb-4 text-center">Datos de sectores críticos</h1>
+    <div class="table-responsive" style="max-height: 500px;">
+      <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            {% for col in columns %}
+              <th>{{ col }}</th>
+            {% endfor %}
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            {% for col in columns %}
+              <td>{{ row[col] }}</td>
+            {% endfor %}
+            <td>
+              <form method="POST" action="{{ url_for('seleccionar') }}">
+                <input type="hidden" name="score" value="{{ row['GiZScore'] }}">
+                <input type="hidden" name="pvalue" value="{{ row['GiPValue'] }}">
+                <input type="hidden" name="latitud" value="{{ row['Latitud'] }}">
+                <input type="hidden" name="longitud" value="{{ row['Longitud'] }}">
+                <input type="hidden" name="tramo" value="{{ row['Tramo'] }}">
+                <input type="hidden" name="municipio" value="{{ row['Municipio'] }}">
+                <button type="submit" class="btn btn-sm btn-warning">Seleccionar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

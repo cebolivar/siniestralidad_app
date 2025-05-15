@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionados</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="mb-4 text-center">Sectores Seleccionados</h1>
+        {% if seleccionados and seleccionados|length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Score</th>
+                        <th>PValue</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Tramo</th>
+                        <th>Municipio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fila in seleccionados %}
+                    <tr>
+                        <td>{{ fila.score }}</td>
+                        <td>{{ fila.pvalue }}</td>
+                        <td>{{ fila.latitud }}</td>
+                        <td>{{ fila.longitud }}</td>
+                        <td>{{ fila.tramo }}</td>
+                        <td>{{ fila.municipio }}</td>
+                        <td>
+                            <form method="GET" action="{{ url_for('prediccion') }}" style="display:inline;">
+                                <input type="hidden" name="score" value="{{ fila.score }}">
+                                <input type="hidden" name="pvalue" value="{{ fila.pvalue }}">
+                                <input type="hidden" name="latitud" value="{{ fila.latitud }}">
+                                <input type="hidden" name="longitud" value="{{ fila.longitud }}">
+                                <input type="hidden" name="tramo" value="{{ fila.tramo }}">
+                                <input type="hidden" name="municipio" value="{{ fila.municipio }}">
+                                <button type="submit" class="btn btn-success btn-sm">Predecir</button>
+                            </form>
+                            <form method="POST" action="{{ url_for('eliminar_seleccionado', idx=loop.index0) }}" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <div class="alert alert-info text-center">No hay sectores seleccionados.</div>
+        {% endif %}
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>
