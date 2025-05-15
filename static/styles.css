@@ -1,15 +1,43 @@
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Una fuente más moderna y legible */
+  padding: 30px; /* Un poco más de espacio alrededor del contenido */
+  line-height: 1.6; /* Mejora la legibilidad del texto */
+  background-color: #f4f4f4; /* Un fondo suave puede ser agradable */
 }
+
 h1 {
-  color: #2c3e50;
+  color: #34495e; /* Un tono ligeramente más oscuro y moderno */
+  border-bottom: 2px solid #bdc3c7; /* Una línea sutil debajo del encabezado */
+  padding-bottom: 10px; /* Espacio entre el texto y la línea */
+  margin-bottom: 20px; /* Más espacio debajo del encabezado */
 }
+
 .table {
   width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Una sombra suave para darle profundidad */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+  overflow: hidden; /* Para que el border-radius funcione correctamente con los bordes internos */
+  background-color: #fff; /* Fondo blanco para la tabla */
 }
-.table td, .table th {
-  border: 1px solid #ddd;
-  padding: 8px;
+
+.table th {
+  background-color: #34495e; /* Un color de fondo para los encabezados */
+  color: white; /* Texto blanco para contrastar */
+  font-weight: bold; /* Texto en negrita para los encabezados */
+  text-align: left; /* Alineación del texto a la izquierda por defecto */
+  padding: 12px; /* Más espacio dentro de las celdas del encabezado */
+}
+
+.table td {
+  border-bottom: 1px solid #ecf0f1; /* Líneas divisorias más claras entre las filas */
+  padding: 10px; /* Un poco más de espacio dentro de las celdas de datos */
+}
+
+.table tr:last-child td {
+  border-bottom: none; /* Elimina el borde inferior de la última fila */
+}
+
+.table tr:hover {
+  background-color: #f9f9f9; /* Un ligero cambio de color al pasar el ratón por encima de las filas */
 }
