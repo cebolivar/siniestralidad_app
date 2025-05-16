@@ -39,6 +39,12 @@
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Predecir fallecidos</button>
                         </form>
+
+                        {% if prediccion %}
+                        <div class="mt-4 alert alert-success text-center">
+                            Resultado de la prediccion: <strong>{{ prediccion}}</strong>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
