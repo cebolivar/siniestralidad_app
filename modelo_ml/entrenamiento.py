@@ -6,7 +6,7 @@ from matplotlib.pyplot import plt
 import os
 
 # Cargar los datos
-csv_path = os.path.join(os.path.dirname(__file__), "data", "SECTORES_CRITICOS_DE_SINIESTRALIDAD_VIAL_20250514.csv")
+csv_path = os.path.join(os.path.dirname(__file__), "data", "RIESGO OPERATIVO PARA MIEMBROS DE LA FUERZA PUBLICA.csv")
 df = pd.read_csv(csv_path)
 
 # Selección y codificación de variables

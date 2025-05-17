@@ -39,7 +39,8 @@
                                 <input type="hidden" name="longitud" value="{{ fila.longitud }}">
                                 <input type="hidden" name="tramo" value="{{ fila.tramo }}">
                                 <input type="hidden" name="municipio" value="{{ fila.municipio }}">
-                                <button type="submit" class="btn btn-success btn-sm">Predecir</button>
+                                <imput type="hidden" name="prediccion" value="{{ fila.prediccion }}">
+                                <button type="submit" class="btn btn-primary btn-sm">Ver Predicción</button>
                             </form>
                             <form method="POST" action="{{ url_for('eliminar_seleccionado', idx=loop.index0) }}" style="display:inline;">
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
